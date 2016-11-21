@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1478856393 source:c:\users\abeedo\desktop\university\bachelor studies\projects\programming projects\game\board set up\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1479058075 source:c:\users\abeedo\desktop\university\bachelor studies\programming\projects\programming projects\game\board set up\boardsetup.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1479058766 source:c:\users\abeedo\desktop\university\bachelor studies\programming\projects\programming projects\game\board set up\inputcommand.c
+	<stdio.h>
+
+1479403412 source:c:\users\abeedo\desktop\university\bachelor studies\programming\programming projects\game\board set up\boardsetup.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1479403424 source:c:\users\abeedo\desktop\university\bachelor studies\programming\programming projects\game\board set up\inputcommand.c
+	<stdio.h>
+	<errno.h>
+	<stdbool.h>
+
+1479405711 source:c:\users\abeedo\desktop\university\bachelor studies\programming\programming projects\game\board set up\input command.c
+	<stdio.h>
+
