@@ -100,7 +100,5 @@ int main(int argc, char const *argv[])
 {
 	create_board();
 	place_penguin();
-	int y;
-	scanf("%d", &y);
 	return 0;
 }
