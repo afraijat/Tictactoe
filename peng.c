@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define Board_Size_x 5
-#define Board_Size_y 5
+#define Board_Size_x 12
+#define Board_Size_y 7
 #define Penguins 4
 #define Max_Rounds 10
 int board[Board_Size_x][Board_Size_y];
@@ -93,48 +93,64 @@ void place_penguin(){
 }
 int check_movement_even(int x, int y){
 	int movement = 0;
-	if((x-1>=1)&&(y-1>=1)){
-		movement += 1;
+	if(board[x][y]>3){
+		if(((x-1>=1)&&(y-1>=1))&&((board[x-1][y-1]>0)&&(board[x-1][y-1]<4))){
+				movement += 1;
+		}
+		if(((x-1>=1)&&(y>=1))&&((board[x-1][y]>0)&&(board[x-1][y]<4))){
+			movement += 1;
+		}
+		if(((x-1>=1)&&(y+1<=Board_Size_y))&&((board[x-1][y+1]>0)&&(board[x-1][y+1]<4))){
+			movement += 1;
+		}
+		if(((x>=1)&&(y-1>=1))&&((board[x][y-1]>0)&&(board[x][y-1]<4))){
+			movement += 1;
+		}
+		if(((x>=1)&&(y+1<=Board_Size_y))&&((board[x][y+1]>0)&&(board[x][y+1]<4))){
+			movement += 1;
+		}
+		if(((x+1<=Board_Size_x)&&(y>=1))&&((board[x+1][y]>0)&&(board[x+1][y]<4))){
+			movement += 1;
+		}
+		printf("%d\n", movement);
 	}
-	if((x-1>=1)&&(y>=1)){
-		movement += 1;
+	else{
+		movement = -1;
+		printf("---------------------------\n");
+		printf("There is no penguin on this tile, choose another one.\n");
+		printf("---------------------------\n");
 	}
-	if((x-1>=1)&&(y+1<=Board_Size_y)){
-		movement += 1;
-	}
-	if((x>=1)&&(y-1>=1)){
-		movement += 1;
-	}
-	if((x>=1)&&(y+1<=Board_Size_y)){
-		movement += 1;
-	}
-	if((x+1<=Board_Size_x)&&(y>=1)){
-		movement += 1;
-	}
-	printf("%d\n", movement);
 	return movement;
 }
 int check_movement_odd(int x, int y){
 	int movement = 0;
-	if((x+1<=Board_Size_x)&&(y-1>=1)){
-		movement += 1;
+	if(board[x][y]>3){
+		if(((x+1<=Board_Size_x)&&(y-1>=1))&&((board[x+1][y-1]>0)&&(board[x+1][y-1]<4))){
+			movement += 1;
+		}
+		if(((x+1<=Board_Size_x)&&(y>=1))&&((board[x+1][y]>0)&&(board[x+1][y]<4))){
+			movement += 1;
+		}
+		if(((x+1<=Board_Size_x)&&(y+1<=Board_Size_y))&&((board[x+1][y+1]>0)&&(board[x+1][y+1]<4))){
+			movement += 1;
+		}
+		if(((x>=1)&&(y-1>=1))&&((board[x][y-1]>0)&&(board[x][y-1]<4))){
+			movement += 1;
+		}
+		if(((x>=1)&&(y+1<=Board_Size_y))&&((board[x][y+1]>0)&&(board[x][y+1]<4))){
+			movement += 1;
+		}
+		if(((x-1>=1)&&(y>=1))&&((board[x-1][y]>0)&&(board[x-1][y]<4))){
+			movement += 1;
+		}
+		printf("%d\n", movement);
 	}
-	if((x+1<=Board_Size_x)&&(y>=1)){
-		movement += 1;
+	else{
+		movement = -1;
+		printf("---------------------------\n");
+		printf("There is no penguin on this tile, choose another one.\n");
+		printf("---------------------------\n");
 	}
-	if((x+1<=Board_Size_x)&&(y+1<=Board_Size_y)){
-		movement += 1;
-	}
-	if((x>=1)&&(y-1>=1)){
-		movement += 1;
-	}
-	if((x>=1)&&(y+1<=Board_Size_y)){
-		movement += 1;
-	}
-	if((x-1>=1)&&(y>=1)){
-		movement += 1;
-	}
-	printf("%d\n", movement);
 	return movement;
 }
 void move_penguin(){
@@ -148,12 +164,16 @@ void move_penguin(){
 		switch(p_y%2){
 			case 1:
 				if(check_movement_odd(p_x, p_y)==0){
+					printf("---------------------------\n");
 					printf("You cant move your penguin\n");
+					printf("---------------------------\n");
 				}
 				break;
 			case 0:
 				if(check_movement_even(p_x, p_y)==0){
+					printf("---------------------------\n");
 					printf("You cant move your penguin\n");
+					printf("---------------------------\n");
 				}
 				break;
 
