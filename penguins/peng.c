@@ -70,6 +70,7 @@ int main(){
 								any += 1;
 							}
 						}
+
 						for(k = 1; k <= no_players; k++){
 							if(x[k] > 0){
 								place_penguin(k, no_penguins-x[k]);
@@ -77,6 +78,7 @@ int main(){
 							}
 						}
 					}
+				}
 				if(check_if_placement() == 0){
 					int e = 1;
 					if (curr_turn == max_turn){
@@ -88,8 +90,6 @@ int main(){
 					else{
 						int i;
 						for(i = 0; i < no_players; i++){
-							print_positions_of_penguins(player+i);
-							printf("---------------------------\n");
 							move_penguin(player+i);
 						}
 						curr_turn += 1;
@@ -98,7 +98,7 @@ int main(){
 			}
 			print_file();
 		}
-	}
+
 		else if (option[0][0] == 's' || option[0][0] == 'S'){
 			int i;
 			for (i = 1; i <= no_players; i++){

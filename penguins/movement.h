@@ -262,8 +262,25 @@ void move_penguin(int player){
 	direction[1] = ' ';
 	while(e == 1){
 		int possible = 0;
+		int i, j;
+		for (i = 1; i <= Board_Size_y; i++){
+			for(j = 1; j <= Board_Size_x; j++){
+				if(correct_penguin_selected(player, j, i) == 1){
+					if (check_movement(j, i, ' ', ' ', 0, i%2) > 0){
+						possible += 1;
+					}
+				}
+			}
+		}
+		if (possible == 0){
+			e = 0;
+			break;
+		}
+		printf("---------------------------\n");
+		print_positions_of_penguins(player);
+		printf("---------------------------\n");
 		print_board();
-		printf("Where do you want to move your penguin to: ");
+		printf("Where do you want to move your penguin to Player%d: ", player);
 		scanf("%d %d ", &x, &y);
 		scanf("%s ", &direction);
 		scanf("%d", &no_tiles_to_move);
