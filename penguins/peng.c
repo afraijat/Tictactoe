@@ -21,6 +21,30 @@ int main(){
 		if (option[0][0] == 'm' || option[0][0] == 'M'){
 			manual();
 		}
+		else if(option[0][0] == 'r' || option[0][0] == 'r'){
+			Board_Size_x = (rand() % 30) + 1;
+			Board_Size_y = (rand() % 30) + 1;
+			no_players = (rand() % 5) + 1;
+			no_penguins = (rand() % 5) + 1;
+			create_board();
+			max_turn = (rand() % 20) + 1;
+			int h;
+			for(h = 1; h <= no_players; h++){
+				score[h] = 0;
+			}
+			print_file();
+		}
+		else if (option[0][0] == 'c' || option[0][0] == 'C'){
+			scanf("%d %d %d %d %d", &Board_Size_x, &Board_Size_y, &no_players, &no_penguins, &max_turn);
+			curr_turn = 0;
+			create_board();
+			int u;
+			for(u = 1; u <= no_players; u++){
+				score[u] = 0;
+			}
+			print_file();
+			printf("New game created!\n");
+		}
 		else if (option[0][0] == 'x' || option[0][0] == 'X'){
 			if(curr_turn == max_turn){
 				announce_winner();

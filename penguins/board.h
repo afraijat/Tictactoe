@@ -11,8 +11,10 @@ void manual(){
 	printf("y - y coordinate of the penguin you choose\n");
 	printf("d - direction in which you want to move\n");
 	printf("n - number of tiles you want to move\n");
-	printf("Directions(not case sensitive): L - left, R - right, RU - right up, RD - right down, LU - left up, LD - left down\n");
+	printf("Directions(not case sensitive): L - left, R - right, RU - right up,\nRD - right down, LU - left up, LD - left down\n");
 	printf("|MENU|\n");
+	printf("'c x y p e m' or 'C x y p e m' to create new game where:\n   p - number of players\n   e - number of penguins per player\n  m - max rounds\n");
+	printf("'r' or 'R' for random new game\n");
 	printf("'m' or 'M' for manual\n");
 	printf("'g n' or 'G n' to play n rounds of the game\n");
 	printf("'x' or 'X to save the current state of the game to output.txt and end the game'\n");
