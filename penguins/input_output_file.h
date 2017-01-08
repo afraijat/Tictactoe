@@ -12,7 +12,7 @@ void read_file(){
 				fscanf(brd,"\n");
 			}
 		fscanf(brd, "\n%d/%d\n", &curr_turn, &max_turn);
-		for(i = 0; i < no_players; i++){
+		for(i = 1; i <= no_players; i++){
 			fscanf(brd, "%d ", &score[i]);
 		}
    		fclose(brd);

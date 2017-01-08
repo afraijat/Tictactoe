@@ -14,7 +14,7 @@ void manual(){
 	printf("Directions(not case sensitive): L - left, R - right, RU - right up, RD - right down, LU - left up, LD - left down\n");
 	printf("|MENU|\n");
 	printf("'m' or 'M' for manual\n");
-	printf("'g' or 'G' to start the game\n");
+	printf("'g n' or 'G n' to play n rounds of the game\n");
 	printf("'x' or 'X to save the current state of the game to output.txt and end the game'\n");
 	printf("'s' or 'S' to display the current score\n");
 	printf("-----------------------------------------------------------------------------\n");

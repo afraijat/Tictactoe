@@ -219,6 +219,7 @@ int correct_penguin_selected(int player, int x, int y){
 	for(i = 0; i < no_penguins; i++){
 		if (board[x][y] == peng_of_play[i]){
 			true_dat = 1;
+			break;
 		}
 		else {
 			true_dat = 0;
@@ -231,15 +232,15 @@ void print_positions_of_penguins(int player){
 	int count = 0;
 	for(i = 0; i < Board_Size_y; i++){
 		for(j = 0; j < Board_Size_x; j++){
-			if(correct_penguin_selected(player, j, i)==1){
-				x[count] = j;
-				y[count] = i;
+			if(correct_penguin_selected(player, j+1, i+1)==1&&check_movement(j+1, i+1, ' ', ' ', 0, (i+1)%2>0)){
+				x[count] = j+1;
+				y[count] = i+1;
 				count += 1;
 			}
 		}
 	}
 	printf("Your penguins are placed on this coordinates: \n");
-
+	char coords[no_penguins*2];
 	for(i = 0; i < count; i++){
 		printf("%d. x = %d & y = %d\n", i+1, x[i], y[i]);
 		if(i == 0){
@@ -250,7 +251,6 @@ void print_positions_of_penguins(int player){
 			//coords[i*2] = x[i];
 			//coords[i*2 + 1] = y[i];
 		}
-		printf("---------------------------\n");
 	}
 }
 void move_penguin(int player){
