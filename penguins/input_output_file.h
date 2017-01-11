@@ -1,7 +1,7 @@
 int board[1000][1000], no_penguins, Board_Size_x, Board_Size_y, curr_turn, max_turn, score[100], no_players;
-void read_file(){
+void read_file(char *filename){
 	FILE *brd;
-   		brd = fopen("Input.txt","r");
+   		brd = fopen(filename,"r");
    		fscanf(brd, "%d %d\n", &no_players, &no_penguins);
    		fscanf(brd, "%d %d\n\n", &Board_Size_x, &Board_Size_y);
    		int i,j;
@@ -17,9 +17,9 @@ void read_file(){
 		}
    		fclose(brd);
 }
-void print_file(){
+void print_file(char *filename){
 	FILE *brd1;
-		brd1 = fopen("Output.txt", "w+");
+		brd1 = fopen(filename, "w+");
 		fprintf(brd1, "%d %d\n", no_players, no_penguins);
 		fprintf(brd1, "%d %d\n\n", Board_Size_x, Board_Size_y);
 		int i,j;
