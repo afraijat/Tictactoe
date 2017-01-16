@@ -9,7 +9,7 @@
 #include "score.h"
 extern int board[1000][1000], no_penguins, Board_Size_x, Board_Size_y, curr_turn, max_turn, score[100], no_players;
 int player = 1;
-//Code by Rajeev, Damian, Wojtek, Abdullah
+//Code by Rajeev, Damian, Wojtek, Abdallah
 int main(int argc, char*argv[]){
   char *file_out;
 	char *file_in;

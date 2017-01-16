@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdlib.h>
 extern int board[1000][1000], Board_Size_x, Board_Size_y, curr_turn, max_turn, score[100], no_players;
-// Code by Abdullah
+// Code by Abdallah
 int check_penguin(int x, int y){
 	//is_there_a_penguin = 1   - there is a penguin on this tile
 	//is_there_a_penguin = 0  - there is no penguin on this tile
