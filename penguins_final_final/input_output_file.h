@@ -1,22 +1,35 @@
 int board[1000][1000], no_penguins, Board_Size_x, Board_Size_y, curr_turn, max_turn, score[100], no_players;
 //code by Rajeev
 void read_file(char *filename){
-	FILE *brd;
-   		brd = fopen(filename,"r");
-   		fscanf(brd, "%d %d\n", &no_players, &no_penguins);
-   		fscanf(brd, "%d %d\n\n", &Board_Size_x, &Board_Size_y);
-   		int i,j;
-   		for(i = 1; i <= Board_Size_y; i++){
-				for(j = 1; j <= Board_Size_x; j++){
-					fscanf(brd, "%d ", &board[j][i]);
-				}
-				fscanf(brd,"\n");
-			}
-		fscanf(brd, "\n%d/%d\n", &curr_turn, &max_turn);
-		for(i = 1; i <= no_players; i++){
-			fscanf(brd, "%d ", &score[i]);
+	int is_txt = 0;
+	int q;
+	for(q = 0;q < strlen(filename)-3; q++){
+		if(filename[q] == '.' && filename[q+1] == 't' && filename[q+2] == 'x' && filename[q+3] == 't'){
+			is_txt = 1;
 		}
-   		fclose(brd);
+	}
+	if(is_txt == 1){
+		FILE *brd;
+	   		brd = fopen(filename,"r");
+	   		fscanf(brd, "%d %d\n", &no_players, &no_penguins);
+	   		fscanf(brd, "%d %d\n\n", &Board_Size_x, &Board_Size_y);
+	   		int i,j;
+	   		for(i = 1; i <= Board_Size_y; i++){
+					for(j = 1; j <= Board_Size_x; j++){
+						fscanf(brd, "%d ", &board[j][i]);
+					}
+					fscanf(brd,"\n");
+				}
+			fscanf(brd, "\n%d/%d\n", &curr_turn, &max_turn);
+			for(i = 1; i <= no_players; i++){
+				fscanf(brd, "%d ", &score[i]);
+			}
+	   		fclose(brd);
+	}
+	else{
+		printf("Error, wrong file format. (only .txt supported)\n");
+	}
+
 }
 void print_file(char *filename){
 	FILE *brd1;
